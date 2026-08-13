@@ -62,103 +62,126 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+/* ==========================================
+   簡約科技風 (Minimalist Tech Style)
+   ========================================== */
+
 .page-view {
-  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace, sans-serif;
 }
 
 .hero {
-  text-align: center;
-  margin-bottom: 50px;
+  text-align: left;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 20px;
 }
 
 .title-gradient {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 10px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+  /* 移除花俏漸層，改用純粹的極深色科技感 */
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
 }
 
 .subtitle {
-  color: #888;
-  font-size: 1.1rem;
+  color: #64748b;
+  font-size: 1rem;
 }
 
+.status-message {
+  font-family: monospace;
+  color: #64748b;
+  padding: 20px 0;
+}
+
+/* 網格排版 */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
+/* 專案卡片 */
 .project-card {
-  position: relative;
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #eee;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+  border-color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
 }
 
+/* 移除光暈裝飾，改用簡約風格 */
 .card-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.project-card:hover .card-glow {
-  opacity: 1;
+  display: none; 
 }
 
 .card-content {
-  padding: 30px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
 }
 
 .card-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 10px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
 }
 
 .card-desc {
-  color: #666;
-  line-height: 1.6;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.5;
   margin-bottom: 20px;
+  flex-grow: 1;
 }
 
+/* 技術標籤 */
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .tech-tag {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-  color: #555;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: monospace;
   font-weight: 500;
-  transition: all 0.2s;
+  border: 1px solid #e2e8f0;
+  transition: background 0.2s;
+}
+
+.tech-tag:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
 }
 
 .tech-tag:hover {
