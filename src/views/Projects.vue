@@ -26,7 +26,7 @@ const errorMessage = ref(null);
 onMounted(async () => {
   try {
     const apiUrl = import.meta.env.VITE_API_URL;
-    const response = await fetch(`${apiUrl}/api/projects`); // 注意這裡的路由可能是複數 projects
+    const response = await fetch(`${apiUrl}/api/project`); // 注意這裡的路由可能是複數 projects
     
     if (!response.ok) throw new Error(`伺服器錯誤: ${response.status}`);
     
