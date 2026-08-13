@@ -5,12 +5,30 @@
     <div v-if="isLoading">專案載入中... ⏳</div>
     <div v-else-if="errorMessage" class="error">{{ errorMessage }}</div>
     
-    <ul v-else-if="projects.length > 0">
-      <li v-for="project in projects" :key="project.id">
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
-      </li>
-    </ul>
+<div v-else-if="projects.length > 0" class="card-grid">
+      <div v-for="project in projects" :key="project.id" class="project-card">
+        <!-- 卡片上方裝飾發光條 -->
+        <div class="card-glow"></div>
+        
+        <div class="card-content">
+          <!-- 專案圖示 -->
+          <div class="card-icon">{{ project.icon || '💻' }}</div>
+          
+          <!-- 專案標題 -->
+          <h3 class="card-title">{{ project.title }}</h3>
+          
+          <!-- 專案描述 -->
+          <p class="card-desc">{{ project.description }}</p>
+          
+          <!-- 技術標籤 (支援陣列) -->
+          <div class="tech-tags" v-if="project.tech_stack && project.tech_stack.length > 0">
+            <span v-for="(tech, index) in project.tech_stack" :key="index" class="tech-tag">
+              {{ typeof tech === 'object' ? tech.name : tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <div v-else>目前還沒有上傳任何專案喔！</div>
   </div>
